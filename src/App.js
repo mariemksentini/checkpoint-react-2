@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import players from './players';
+import CardPlayer from './player';
 function App() {
+  const flexStyle = {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '20px',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    padding: '20px',
+    backgroundColor: '#f9f9f9',
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={flexStyle}>
+      {players.map((el,i,t) => (
+        <CardPlayer key={i} {...el} />
+      ))}
     </div>
   );
 }
